@@ -34,11 +34,6 @@ secret_id=$(vault write -f auth/approle/role/postgres-role/secret-id | grep -i '
 echo "Role ID: ${role_id}"
 echo "Secret ID: ${secret_id}"
 
-# Write the output to a file
-# touch /app/.env
-# echo "ROLE_ID=${role_id}" > /app/.env
-# echo "SECRET_ID=${secret_id}" >> /app/.env
-
 # Write the output to a config.json file for the app to read from
 echo "{\"ROLE_ID\":\"${role_id}\",\"SECRET_ID\":\"${secret_id}\"}" > /app/config.json
 
@@ -74,8 +69,8 @@ vault write database/config/postgresql \
 ################################ Transit Engine ################################ 
 # vault secrets enable transit
 
-# # create key1 with type ed25519
+# # create key1 
 # vault write -f transit/keys/key1
 
-# # create key2 with type ecdsa-p256
+# # create key2 
 # vault write -f transit/keys/key2 
