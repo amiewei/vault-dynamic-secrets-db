@@ -20,7 +20,7 @@ const DB_PORT = 5432; //need to update if spinning up a new ngrok, along with db
 const options = {
     apiVersion: "v1",
     endpoint: "http://vault:8200",
-    // namespace: "",
+    // namespace: "", //for enterprise vault
 };
 
 const vault = require("node-vault")(options);
