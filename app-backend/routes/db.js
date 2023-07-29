@@ -43,7 +43,8 @@ module.exports = (pool) => {
         }
     });
 
-    // delete a row from the product table based on product id
+    // delete a row from the product table based on product id (using GET request instead of DELETE for demo purposes from the browser)
+    // as the root user having only assigned read only role, you won't be able to reach this endpoint
     router.get("/acmeproducts/delete/:productId", async (req, res, next) => {
         try {
             console.log("delete path");

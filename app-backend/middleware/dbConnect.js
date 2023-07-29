@@ -1,9 +1,8 @@
 // Use AppRole to Authenticate to Vault and get Temp db credentials and connect to postgres
 
+// --------- get role_id and secret_id for AppRole for Auth------
 const fs = require("fs");
-
 const configPath = "/usr/src/app/config.json";
-
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 
 console.log(config.ROLE_ID);
