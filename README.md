@@ -12,9 +12,9 @@ export VAULT_TOKEN='root'`
     <br>
 4.  Try the following endpoints in the browser:
 
-    -   http://localhost:8200/api/users - to see the temporary users created in the database
-    -   http://localhost:8200/api/acmeproducts - to read the product table
-    -   http://localhost:8200/api/acmeproducts/delete/1 - to attempt to delete a product from the table. _(spoiler alert - you won't be allowed as the user is granted read only permission)_
+    -   http://localhost:3000/api/users - to see the temporary users created in the database
+    -   http://localhost:3000/api/acmeproducts - to read the product table
+    -   http://localhost:3000/api/acmeproducts/delete/1 - to attempt to delete a product from the table. _(spoiler alert - you won't be allowed as the user is granted read only permission)_
 
     <br>
 
