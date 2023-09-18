@@ -2,19 +2,18 @@
 
 // --------- get role_id and secret_id for AppRole for Auth------
 const fs = require("fs");
-const configPath = "/usr/src/app/config.json";
-const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 
-console.log(config.ROLE_ID);
-console.log(config.SECRET_ID);
+// //------------- vault config ------------
+const roleId = fs.readFileSync("/usr/src/app/role_id", "utf8").trim();
+console.log("Role ID:", roleId);
 
-//------------- vault config ------------
-const roleId = config.ROLE_ID;
-const secretId = config.SECRET_ID;
+const secretId = fs.readFileSync("/usr/src/app/secret_id", "utf8").trim();
+console.log("Secret ID:", secretId);
 
-const DB_SECRETS_PATH = "database/creds/readonly";
-const DB_HOSTNAME = "postgres"; //need to update if spinning up a new ngrok, along with db connection string in vault
-const DB_PORT = 5432; //need to update if spinning up a new ngrok, along with db connection string in vault
+// read db role to get db username and pw
+const DB_SECRETS_PATH = "database/creds/app100";
+const DB_HOSTNAME = "postgres";
+const DB_PORT = 5432;
 
 const options = {
     apiVersion: "v1",
@@ -32,6 +31,7 @@ const vaultAppRoleAuth = async () => {
     vault.token = result.auth.client_token; // Add token to vault object for subsequent requests.
 
     const { data } = await vault.read(DB_SECRETS_PATH); // Retrieve the secret stored in previous steps.
+
     const username = data.username;
     const password = data.password;
 
@@ -55,6 +55,7 @@ const connectToPostgres = async (username, password) => {
 
 const connectionPool = async () => {
     const { username, password } = await vaultAppRoleAuth();
+    console.log(username, password);
     const pool = await connectToPostgres(username, password);
     console.log(pool);
     return pool;

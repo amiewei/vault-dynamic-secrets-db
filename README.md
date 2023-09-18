@@ -20,3 +20,17 @@ export VAULT_TOKEN='root'`
 
 5.  Vault UI can be accessed by using the token of root:\
     http://localhost:8200/ui
+
+6.  Clean up:
+
+```
+docker-compose down
+
+```
+
+clean up local files
+
+```
+chmod +x destroy.sh
+./destroy.sh
+```
