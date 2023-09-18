@@ -23,14 +23,14 @@ export VAULT_TOKEN='root'`
 
 6.  Clean up:
 
-```
-docker-compose down
+    ```
+    docker-compose down
 
-```
+    ```
 
-clean up local tf files and secrets files
+    clean up local tf files and secrets files
 
-```
-chmod +x destroy.sh
-./destroy.sh
-```
+    ```
+    chmod +x destroy.sh
+    ./destroy.sh
+    ```
