@@ -44,7 +44,7 @@ vault secrets enable database
 
 # NOTE - The databse needs to be available first for the db secret engine to be configured
 # Configure the database secrets engine with the connection credentials for the Postgres database.
-POSTGRES_URL="host.docker.internal:5432"
+POSTGRES_URL="postgres:5432"
 echo "POSTGRES_URL: ${POSTGRES_URL}"
 
 vault write database/config/postgresql \
