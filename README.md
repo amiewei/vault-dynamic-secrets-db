@@ -1,4 +1,4 @@
-Launches a postgres db, vault in dev mode and a simple backend to showcase using the vault database secrets engine to generate dynamic db credentials
+Launches a Postgres db, Vault in dev mode and a simple backend to showcase using the Vault database secrets engine to generate dynamic db credentials. Example uses Terraform to configure the db secrets engine for Postgres, including outputting the role_id and secret_id for the backend app to authenticate with Vault using AppRole and retrieve secrets in order to connect to the database.
 
 1.  Make vault-init.sh into executable:\
      `chmod +x ./vault-init.sh`
@@ -28,7 +28,7 @@ docker-compose down
 
 ```
 
-clean up local files
+clean up local tf files and secrets files
 
 ```
 chmod +x destroy.sh

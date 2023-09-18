@@ -6,3 +6,8 @@ public
 TODO.md
 venv
 **/*.sql
+**/.terraform/
+**/*.tfstate
+**/*.terraform*
+**/*_id
+
